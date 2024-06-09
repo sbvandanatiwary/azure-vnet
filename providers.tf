@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "SabreADI"
+
+    workspaces {
+      name = "azure-vnet"
+    }
+  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
