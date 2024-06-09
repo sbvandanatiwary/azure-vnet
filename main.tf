@@ -4,14 +4,14 @@
  workspace = "Infraonazure"
 }*/
 
-data "terraform_remote_state" "demo-ResourceGroup"{
-      backend = "remote"
-      config = {
-      organization = "SabreADI"
-      workspace = {
-      name = "Infraonazure"
-                  }
-   }
+data "terraform_remote_state" "demo-resourceGroup"{
+  backend = "remote"
+  config = {
+    organization = "SabreADI"
+    workspace = {
+    name = "Infraonazure"
+  }
+  }
 }
 
 # Resource Group
