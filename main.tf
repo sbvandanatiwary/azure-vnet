@@ -1,3 +1,9 @@
+# data resource to gather information pre-existing resource 
+data "tfe_outputs" "erg"{
+ organization = "SabreADI"
+ workspace = "Infraonazure"
+}
+
 # Resource Group
 resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
@@ -8,8 +14,10 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_virtual_network" "my_terraform_network" {
   name                = "${random_pet.prefix.id}-vnet"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  #location            = azurerm_resource_group.rg.location
+  location            = data.erg.resource_group_location.location
+  #resource_group_name = azurerm_resource_group.rg.name
+  resource_group_name = data.erg.resource_group[0].name
 }
 
 # Subnet 1
