@@ -25,10 +25,10 @@ resource "azurerm_virtual_network" "my_terraform_network" {
   name                = "${random_pet.prefix.id}-vnet"
   address_space       = ["10.0.0.0/16"]
   #location            = azurerm_resource_group.rg.location
-  location            = data.terraform_remote_state.demo-ResourceGroup.output.myTFResourceGroupcc1.location
+  location            = data.terraform_remote_state.demo-ResourceGroup.outputs.myTFResourceGroupcc1.location
   #location = data.tfe_outputs.erg.output.myTFResourceGroupcc1.location
   #resource_group_name = azurerm_resource_group.rg.name
-  resource_group_name = ata.terraform_remote_state.demo-ResourceGroup.output.myTFResourceGroupcc1.name  
+  resource_group_name = data.terraform_remote_state.demo-ResourceGroup.outputs.myTFResourceGroupcc1.name  
 }
 
 
