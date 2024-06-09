@@ -5,7 +5,7 @@
 }
 */
 data "terraform_remote_state" "demo-ResourceGroup"{
-      backend = "remote"
+      #backend = "remote"
       config = {
       organization = "SabreADI"
       workspace = {
