@@ -22,6 +22,7 @@ resource "azurerm_virtual_network" "my_terraform_network" {
 output "rg_name" {
   description = "The name of the created subnet 2."
   value       = data.tfe_outputs.erg.values
+  sensitive = true
 }
 
 
