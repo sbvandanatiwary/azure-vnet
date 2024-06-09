@@ -8,7 +8,7 @@ data "terraform_remote_state" "demo-resourceGroup"{
   backend = "remote"
   config = {
     organization = "SabreADI"
-    workspace = {
+    workspaces = {
     name = "Infraonazure"
   }
   }
