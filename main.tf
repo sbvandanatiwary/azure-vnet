@@ -15,9 +15,9 @@ resource "azurerm_virtual_network" "my_terraform_network" {
   name                = "${random_pet.prefix.id}-vnet"
   address_space       = ["10.0.0.0/16"]
   #location            = azurerm_resource_group.rg.location
-  location            = data.tfe_outputs.erg.values.resource_group_location[0].location
+  location            = data.tfe_outputs.erg.values.azurerm_resource_group.location
   #resource_group_name = azurerm_resource_group.rg.name
-  resource_group_name = data.tfe_outputs.erg.values.resource_group[0].name
+  resource_group_name = data.tfe_outputs.erg.values.azurerm_resource_group[0].name
 }
 
 # Subnet 1
