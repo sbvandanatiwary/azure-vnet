@@ -18,12 +18,13 @@ resource "azurerm_virtual_network" "my_terraform_network" {
   #location            = data.tfe_outputs.erg.values.myTFResourceGroupcc1.location
   resource_group_name = azurerm_resource_group.rg.name
   #resource_group_name = data.tfe_outputs.erg.values.myTFResourceGroupcc1.name
-}
-output "rg_name" {
+  output "rg_name" {
   description = "The name of the created subnet 2."
   value       = data.tfe_outputs.erg.values
   #sensitive = true
 }
+}
+
 
 
 # Subnet 1
