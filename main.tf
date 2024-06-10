@@ -15,10 +15,10 @@ data "terraform_remote_state" "demo-ResourceGroup"{
 }
 
 # Resource Group
-/*resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
   name     = "${random_pet.prefix.id}-rg"
-}*/
+}
 
 # Virtual Network
 resource "azurerm_virtual_network" "my_terraform_network" {
