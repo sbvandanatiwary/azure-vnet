@@ -15,10 +15,10 @@ data "terraform_remote_state" "demo-ResourceGroup"{
 }
 
 # Resource Group
-resource "azurerm_resource_group" "rg" {
+/*resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
   name     = "${random_pet.prefix.id}-rg"
-}
+}*/
 
 # Virtual Network
 resource "azurerm_virtual_network" "my_terraform_network" {
@@ -36,7 +36,7 @@ resource "azurerm_virtual_network" "my_terraform_network" {
 # Subnet 1
 resource "azurerm_subnet" "my_terraform_subnet_1" {
   name                 = "subnet-1"
-  resource_group_name  = azurerm_resource_group.rg.name
+  resource_group_name  = data.terraform_remote_state.demo-ResourceGroup.outputs.rg1.name
   virtual_network_name = azurerm_virtual_network.my_terraform_network.name
   address_prefixes     = ["10.0.0.0/24"]
 }
@@ -44,7 +44,7 @@ resource "azurerm_subnet" "my_terraform_subnet_1" {
 # Subnet 2
 resource "azurerm_subnet" "my_terraform_subnet_2" {
   name                 = "subnet-2"
-  resource_group_name  = azurerm_resource_group.rg.name
+  resource_group_name  = data.terraform_remote_state.demo-ResourceGroup.outputs.rg1.name
   virtual_network_name = azurerm_virtual_network.my_terraform_network.name
   address_prefixes     = ["10.0.1.0/24"]
 }
